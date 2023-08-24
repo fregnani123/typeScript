@@ -1,7 +1,7 @@
-import express, {Request, Response} from 'express'
-
+import express, { Request, Response } from 'express';
+import cors from 'cors'
 const app = express();
-
+app.use(cors())
 
 interface Iproduct{
     id: number;
@@ -14,11 +14,10 @@ interface Iproduct{
 
 const produts: Iproduct[] = []
 
-
 app.get('/produtos', (req: Request, res: Response) => {
     const newProduct = {
         id: Math.random(),
-        name: "Batedeira",
+        name: "Batedeira", 
         price: 300,
         description: 'Batedeira potente, boa para fazer bolos',
         address: {
